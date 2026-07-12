@@ -1,0 +1,33 @@
+{
+  "name": "ROYAL STAY",
+  "tagline": "Luxury Hotel & Resort",
+  "location": "Rajasthan, India",
+  "address": "Royal Sanctuary Road, Lake Pichola East Bay, Udaipur, Rajasthan, India",
+  "phone": "+91 294 888 8888",
+  "email": "relations@royalstay.com",
+  "whatsapp": "+91 88888 88888",
+  "description": "Welcome to ROYAL STAY. A landmark of imperial heritage and bespoke modern hospitality. Nestled along the tranquil waters of Lake Pichola, our resort provides a collection of palace suites, private wellness pavilions, and signature dining designed for the world's most discerning guests.",
+  "socials": {
+    "instagram": "https://instagram.com/royalstay",
+    "facebook": "https://facebook.com/royalstay",
+    "youtube": "https://youtube.com/royalstay",
+    "twitter": "https://twitter.com/royalstay"
+  },
+  "awards": [
+    {
+      "year": "2026",
+      "title": "Awwwards Site of the Year nominee",
+      "organization": "Awwwards Jury"
+    },
+    {
+      "year": "2025",
+      "title": "World's Best Luxury Resort Experience",
+      "organization": "Condé Nast Traveler"
+    },
+    {
+      "year": "2025",
+      "title": "Top Historic Hotel in Asia",
+      "organization": "Historic Hotels Worldwide"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "royal-weddings",
+    "name": "Imperial Royal Weddings",
+    "tagline": "Exchange Vows in Majesty",
+    "description": "Exchange your vows against the backdrop of shimmering lakes and ancient sandstone pavilions. Our dedicated wedding curators craft bespoke royal celebrations, complete with elephant arrivals, custom floral installations, fine-dining banquets, and world-class heritage entertainment.",
+    "capacity": "Up to 500 Guests",
+    "venues": ["The Zen Courtyard", "The lakeside Deck", "The Grand Ballroom"],
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200",
+    "amenities": [
+      "Custom Mughal Floral Archway",
+      "Executive Chef Curated Banquet Menu",
+      "Traditional Shehnai & Sitar Orchestras",
+      "Bespoke Bridal Suite & Salon Services",
+      "Royal Horse Carriage Procession"
+    ]
+  },
+  {
+    "id": "corporate-retreats",
+    "name": "Executive Boardroom Retreats",
+    "tagline": "Inspirational Heritage Venues",
+    "description": "Inspire your board of directors in a setting of unmatched focus and poise. Our private palace meeting salons feature advanced high-speed modern communications integrated within classical stone interiors, complete with private dining rooms and post-meeting wellness programs.",
+    "capacity": "15 to 80 Guests",
+    "venues": ["The Dewan Lounge", "The Royal Library Salon"],
+    "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200",
+    "amenities": [
+      "Laser Projectors & Spatial Audio Systems",
+      "Private Boardroom Dining Nook",
+      "Dedicated Butler Support",
+      "Curated Tea Tasting & Cigar Break",
+      "Complimentary Spa Pavilion Vouchers"
+    ]
+  }
+]

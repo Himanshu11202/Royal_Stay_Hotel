@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Lady Victoria Sterling",
+    "location": "London, UK",
+    "rating": 5,
+    "quote": "An absolute masterpiece of heritage hospitality. The lakeside views from our private plunge pool in the Maharani Suite were cinematic, and the service was effortlessly regal. The team anticipates your every desire.",
+    "stayDate": "October 2025"
+  },
+  {
+    "id": "2",
+    "name": "Jean-Pierre Laurent",
+    "location": "Paris, France",
+    "rating": 5,
+    "quote": "Dining under the mirrors at Sheesh Mahal was a culinary experience I will never forget. Chef Devendra's gold-dusted lamb was superb. The architecture is majestic, and the smooth transitions of the resort feel otherworldly.",
+    "stayDate": "December 2025"
+  },
+  {
+    "id": "3",
+    "name": "Aishwarya & Vikram Sen",
+    "location": "Mumbai, India",
+    "rating": 5,
+    "quote": "We hosted our royal wedding celebrations here, and it felt like we stepped directly into a fairytale. The sandstone arches, the floating pool, and the sheer scale of luxury at Patidar Palace are unmatched globally.",
+    "stayDate": "January 2026"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "royal-heritage-suite",
+    "name": "Royal Heritage Suite",
+    "price": 55000,
+    "size": "85 sqm",
+    "occupancy": "2 Guests",
+    "bed": "Royal King Bed",
+    "view": "Palace Courtyard",
+    "shortDescription": "Immerse yourself in heritage luxury. Hand-painted frescoes, high stone arches, and private marble balconies.",
+    "description": "The Royal Heritage Suite blends traditional Rajasthani craftsmanship with modern boutique comforts. Adorned with hand-carved pillars, imperial screens, and velvet fabrics, this suite is designed to transport you to an era of elegance. A grand balcony opens onto the central palace courtyard, offering private high tea service.",
+    "images": [
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "amenities": [
+      "24/7 Dedicated Butler Service",
+      "Private Courtyard Balcony",
+      "Bespoke Sandalwood Bath Amenities",
+      "Complimentary Historic Boat Ride",
+      "Premium Pillow & Linen Menu"
+    ],
+    "featured": true
+  },
+  {
+    "slug": "imperial-lakeview-suite",
+    "name": "Imperial Lakeview Suite",
+    "price": 85000,
+    "size": "120 sqm",
+    "occupancy": "3 Guests",
+    "bed": "Grand Emperor Bed",
+    "view": "Lake Pichola Vista",
+    "shortDescription": "Floating above the water. Floor-to-ceiling glass screens with panoramic lakeside vistas and a private plunge pool.",
+    "description": "Positioned right on the lakeside, the Imperial Lakeview Suite features panoramic views of Udaipur's floating temples. Complete with custom wood panels, a marble writing bureau, and a private glass-enclosed plunge pool, this suite represents the pinnacle of luxury, balancing heritage architecture with contemporary aesthetics.",
+    "images": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "amenities": [
+      "Private Lakeside Dining Deck",
+      "IPad-Controlled Suite Utilities",
+      "Plunge Bath with Panoramic Views",
+      "Complementary Champagne check-in",
+      "Airport Transfers in Luxury Sedan"
+    ],
+    "featured": true
+  },
+  {
+    "slug": "sanctuary-pool-villa",
+    "name": "Sanctuary Pool Villa",
+    "price": 140000,
+    "size": "240 sqm",
+    "occupancy": "4 Guests",
+    "bed": "2 King Beds",
+    "view": "Resort Grounds & Lake",
+    "shortDescription": "Your private estate. Independent garden villa with heated lap pool, dining pavilion, and dedicated chef.",
+    "description": "An absolute sanctuary. The Sanctuary Pool Villa is a standalone private residence within the estate. Surrounded by Mughal-inspired fountains and private gardens, it features its own driveway, a 15-meter heated pool, a private library, and an expansive dining terrace where our chef curates custom menus.",
+    "images": [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1606046604972-77cc76aee944?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "amenities": [
+      "Private Guard & Entrance VIP",
+      "Private 15m Heated Plunge Pool",
+      "Custom Fine-Dining Chef Menu",
+      "Private Rolls-Royce Chauffeur",
+      "Spa Treatment Room & Sauna"
+    ],
+    "featured": true
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "venues": [
+    {
+      "id": "sheesh-mahal",
+      "name": "Sheesh Mahal",
+      "tagline": "Imperial Royal Dining",
+      "type": "Signature Fine Dining",
+      "hours": "7:00 PM - 11:30 PM",
+      "cuisine": "Royal Rajasthani & Northwest Frontier",
+      "dressCode": "Formal / Elegant Traditional",
+      "description": "Dine under a ceiling of hand-cut Belgian mirrors. Sheesh Mahal serves historic Mewar recipes passed down through generations, reimagined by our chefs with edible gold accents, wild forest herbs, and organic local ingredients.",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200",
+      "menu": [
+        {
+          "name": "Mewari Kesar Maas",
+          "price": "2,850",
+          "description": "Tender grass-fed lamb slow-cooked in a yogurt and saffron sauce, infused with local hill spices and dry red chilies."
+        },
+        {
+          "name": "Shahi Paneer Paneer Ke Tukde",
+          "price": "1,950",
+          "description": "Cottage cheese medallions stuffed with organic dry fruits, marinated in hand-ground cardamom cream."
+        },
+        {
+          "name": "Gold-Leaf Rabri Mille-Feuille",
+          "price": "1,450",
+          "description": "Layers of crisp puff pastry, saffron rabri, roasted pistachios, finished with 24-karat edible gold foil."
+        }
+      ]
+    },
+    {
+      "id": "royal-lounge",
+      "name": "The Royal Lounge",
+      "tagline": "Imperial Afternoon High Tea",
+      "type": "Cafe & Tea Salon",
+      "hours": "11:00 AM - 7:00 PM",
+      "cuisine": "Colonial High Tea & Handcrafted Pastries",
+      "dressCode": "Smart Casual",
+      "description": "Set inside the marble pavilion, the salon serves hand-picked loose-leaf teas from Darjeeling, alongside French pastries with a unique local cardamom twist.",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200",
+      "menu": [
+        {
+          "name": "Grand High Tea Stand",
+          "price": "3,500",
+          "description": "freshly baked rosewater scones, cucumber mint sandwiches, saffron macarons, served with private single-estate tea selections."
+        }
+      ]
+    }
+  ],
+  "chef": {
+    "name": "Executive Chef Devendra Singh",
+    "title": "Master of Heritage Gastronomy",
+    "bio": "With 25 years of culinary expertise, Chef Devendra has dedicated his career to restoring lost recipes from Mewar's historic royal kitchens. He sources wild forest honey and organic spices directly from local communities, crafting bespoke dining experiences.",
+    "image": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=800"
+  }
+}
