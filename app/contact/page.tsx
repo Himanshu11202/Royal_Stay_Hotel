@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "@/components/luxury-image";
+import { siteConfig } from "@/config/site";
 import { Phone, Mail, MapPin, Send, MessageCircle, Plus, Minus } from "lucide-react";
 
 interface FAQItem {
@@ -36,6 +37,12 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formState.name && formState.email && formState.msg) {
+      const subject = encodeURIComponent(`Contact Inquiry - ${formState.name}`);
+      const body = encodeURIComponent(
+        `Hello ${siteConfig.hotelName},\n\nI have a contact inquiry.\n\nName: ${formState.name}\nEmail: ${formState.email}\nMessage: ${formState.msg}\n\nPlease contact me regarding this request.`
+      );
+      window.location.href = `mailto:${siteConfig.emailAddress}?subject=${subject}&body=${body}`;
+      
       setSubmitted(true);
       setFormState({ name: "", email: "", msg: "" });
       setTimeout(() => setSubmitted(false), 5000);
@@ -85,7 +92,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-sans text-[10px] tracking-wider text-white/40 uppercase">Address</p>
                   <p className="font-sans text-sm text-white/80 font-light mt-1">
-                    Heritage Valley, Royal Hill Road, Lake Pichola, Udaipur, Rajasthan 313001, India
+                    {siteConfig.location}
                   </p>
                 </div>
               </div>
@@ -94,8 +101,8 @@ export default function ContactPage() {
                 <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="font-sans text-[10px] tracking-wider text-white/40 uppercase">Reservations & Enquiries</p>
-                  <a href="tel:+919876543210" className="font-sans text-sm text-primary hover:text-white transition-colors block mt-1">
-                    +91 98765 43210
+                  <a href={`tel:${siteConfig.phoneNumber}`} className="font-sans text-sm text-primary hover:text-white transition-colors block mt-1">
+                    {siteConfig.phoneNumber}
                   </a>
                 </div>
               </div>
@@ -105,7 +112,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-sans text-[10px] tracking-wider text-white/40 uppercase">WhatsApp Concierge</p>
                   <a
-                    href="https://wa.me/919876543210"
+                    href={`https://wa.me/${siteConfig.whatsAppNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-sm text-primary hover:text-white transition-colors block mt-1"
@@ -119,8 +126,8 @@ export default function ContactPage() {
                 <Mail className="text-primary mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="font-sans text-[10px] tracking-wider text-white/40 uppercase">Email Coordinates</p>
-                  <a href="mailto:info@royalstay.com" className="font-sans text-sm text-primary hover:text-white transition-colors block mt-1">
-                    info@royalstay.com
+                  <a href={`mailto:${siteConfig.emailAddress}`} className="font-sans text-sm text-primary hover:text-white transition-colors block mt-1">
+                    {siteConfig.emailAddress}
                   </a>
                 </div>
               </div>

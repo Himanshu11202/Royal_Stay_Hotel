@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import Image from "@/components/luxury-image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import roomsData from "@/data/rooms.json";
@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/utils";
 import BookingWidget from "@/components/booking-widget";
 import { Maximize2, Compass, Users, Bed, ChevronLeft, ChevronRight, Sparkles, RefreshCw } from "lucide-react";
 
-export function RoomDetailPage() {
+export default function RoomDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
@@ -253,4 +253,3 @@ export function RoomDetailPage() {
     </div>
   );
 }
-export default RoomDetailPage;
