@@ -7,14 +7,14 @@ import roomsData from "@/data/rooms.json";
 import { formatPrice } from "@/lib/utils";
 import { useBooking } from "@/hooks/use-booking";
 import { Maximize2, Compass, Users, ArrowRight } from "lucide-react";
-import { gsap } from "@/lib/gsap";
+import { gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 export function RoomPreview() {
   const { openBooking, setBookingData } = useBooking();
   const containerRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // Only execute horizontal scroll pin on desktop screen sizes
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     if (!isDesktop) return;

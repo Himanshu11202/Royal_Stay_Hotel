@@ -3,15 +3,14 @@
 import React, { useRef, useEffect } from "react";
 import Image from "@/components/luxury-image";
 import Link from "next/link";
-import { gsap } from "@/lib/gsap";
-import { ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 export function WelcomeSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinColumnRef = useRef<HTMLDivElement>(null);
   const imageGridRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // Media query check - only pin on desktop layouts
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     if (!isDesktop) return;

@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { ArrowDown, Mail, Phone, Star } from "lucide-react";
-import { gsap } from "@/lib/gsap";
+import { gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
 import { useBooking } from "@/hooks/use-booking";
 import LuxuryImage from "@/components/luxury-image";
 
@@ -28,7 +28,7 @@ export function HeroVideo() {
     }
   };
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const hero = heroRef.current;
       const viewport = viewportRef.current;

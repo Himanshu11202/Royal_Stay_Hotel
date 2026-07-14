@@ -9,48 +9,49 @@ export function CinematicLoader() {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // Stagger letter reveals
-    gsap.fromTo(
-      ".loader-logo-char",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, stagger: 0.08, duration: 1.2, ease: "power3.out", delay: 0.2 }
-    );
+    const ctx = gsap.context(() => {
+      // Stagger letter reveals
+      gsap.fromTo(
+        ".loader-logo-char",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.08, duration: 1.2, ease: "power3.out", delay: 0.2 }
+      );
 
-    const counter = { val: 0 };
-    const duration = 2.2; // seconds
+      const counter = { val: 0 };
+      const duration = 2.2; // seconds
 
-    const countTween = gsap.to(counter, {
-      val: 100,
-      duration: duration,
-      ease: "power2.out",
-      onUpdate: () => {
-        setCount(Math.floor(counter.val));
-      },
-      onComplete: () => {
-        // Stagger curtains up
-        gsap.to(".loader-curtain", {
-          yPercent: -100,
-          duration: 1.4,
-          ease: "power4.inOut",
-          stagger: 0.08,
-          onComplete: () => {
-            setIsComplete(true);
-          },
-        });
-      },
+      gsap.to(counter, {
+        val: 100,
+        duration: duration,
+        ease: "power2.out",
+        onUpdate: () => {
+          setCount(Math.floor(counter.val));
+        },
+        onComplete: () => {
+          // Stagger curtains up
+          gsap.to(".loader-curtain", {
+            yPercent: -100,
+            duration: 1.4,
+            ease: "power4.inOut",
+            stagger: 0.08,
+            onComplete: () => {
+              setIsComplete(true);
+            },
+          });
+        },
+      });
     });
 
-    return () => {
-      countTween.kill();
-    };
+    return () => ctx.revert();
   }, []);
-
-  if (isComplete) return null;
 
   const brandName = "ROYAL STAY";
 
   return (
-    <div className="fixed inset-0 z-[200] overflow-hidden flex flex-col justify-between pointer-events-none">
+    <div 
+      className={`fixed inset-0 z-[200] overflow-hidden flex flex-col justify-between pointer-events-none transition-all duration-500 ${isComplete ? "opacity-0 pointer-events-none hidden" : ""}`}
+      style={isComplete ? { display: "none" } : {}}
+    >
       {/* Dynamic Slide Curtains */}
       <div className="absolute inset-0 flex flex-col">
         <div className="loader-curtain flex-1 bg-luxury-black border-b border-primary/5 pointer-events-auto" />

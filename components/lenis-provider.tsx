@@ -8,29 +8,18 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<any>(null);
 
   useEffect(() => {
-    // Sync ScrollTrigger with Lenis scroll updates
     const lenis = lenisRef.current?.lenis;
     if (!lenis) return;
 
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        return arguments.length ? lenis.scrollTo(value) : lenis.scroll;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
+    const handleScroll = () => {
+      ScrollTrigger.update();
+    };
 
-    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", handleScroll);
 
     // Clean up
     return () => {
-      lenis.off("scroll", ScrollTrigger.update);
+      lenis.off("scroll", handleScroll);
     };
   }, []);
 

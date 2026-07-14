@@ -10,5 +10,9 @@ if (typeof window !== "undefined") {
   });
 }
 
+import { useEffect, useLayoutEffect } from "react";
+
+export const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export * from "gsap";
 export { ScrollTrigger };

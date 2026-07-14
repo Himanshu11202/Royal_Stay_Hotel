@@ -13,6 +13,13 @@ export const LuxuryImage = forwardRef<HTMLImageElement, LuxuryImageProps>(
   ({ src, alt, fallbackSrc = siteConfig.fallbackImageUrl, className, ...props }, ref) => {
     const [imgSrc, setImgSrc] = useState(src);
     const [isError, setIsError] = useState(false);
+    const [prevSrc, setPrevSrc] = useState(src);
+
+    if (src !== prevSrc) {
+      setPrevSrc(src);
+      setImgSrc(src);
+      setIsError(false);
+    }
 
     const handleError = () => {
       if (!isError) {
