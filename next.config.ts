@@ -1,21 +1,59 @@
 import type { NextConfig } from "next";
 import * as fs from "fs";
 import * as path from "path";
+import * as https from "https";
 
-// Auto-copy palace image asset from brain folder on dev server start
+// Helper to download image asset
+const downloadImage = (url: string, dest: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(dest);
+    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (response) => {
+      if (response.statusCode !== 200) {
+        reject(new Error(`Status code ${response.statusCode}`));
+        return;
+      }
+      response.pipe(file);
+      file.on('finish', () => {
+        file.close();
+        resolve();
+      });
+    }).on('error', (err) => {
+      fs.unlink(dest, () => {});
+      reject(err);
+    });
+  });
+};
+
+// Provision hero assets
 try {
-  const src = "C:\\Users\\Himanshu patidar\\.gemini\\antigravity-ide\\brain\\3a94e51b-8dbc-4b92-9709-579722a928ef\\media__1783787601437.jpg";
-  const dest = path.join(process.cwd(), "public", "hotel-hero.jpg");
-  if (!fs.existsSync(dest) && fs.existsSync(src)) {
-    const destDir = path.dirname(dest);
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir, { recursive: true });
-    }
-    fs.copyFileSync(src, dest);
-    console.log("SUCCESS: Hotel image asset provisioned successfully.");
+  const publicDir = path.join(process.cwd(), "public");
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
   }
+
+  const assets = [
+    { name: "hero-far.jpg", url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200" },
+    { name: "hero-mid.jpg", url: "https://images.unsplash.com/photo-1598977123418-45f04b01fe1e?auto=format&fit=crop&q=80&w=1200" },
+    { name: "hero-gate.jpg", url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200" }
+  ];
+
+  assets.forEach(async (asset) => {
+    const dest = path.join(publicDir, asset.name);
+    if (!fs.existsSync(dest)) {
+      try {
+        await downloadImage(asset.url, dest);
+        console.log(`SUCCESS: Provisioned ${asset.name}`);
+      } catch (err) {
+        console.warn(`WARNING: Failed download for ${asset.name}, falling back to copies:`, err.message);
+        const fallback = path.join(publicDir, "hotel-hero.jpg");
+        if (fs.existsSync(fallback)) {
+          fs.copyFileSync(fallback, dest);
+        }
+      }
+    }
+  });
 } catch (err) {
-  console.error("Asset copy pre-compilation check failed:", err);
+  console.error("Asset provision failed:", err);
 }
 
 const nextConfig: NextConfig = {
