@@ -45,6 +45,19 @@ export function HeroVideo() {
         hero && viewport && farShot && hotelImg && gateLeft && gateRight && 
         gateContainer && goldenLight && lobby && ui
       ) {
+        // Calculate responsive scale based on screen width
+        const getResponsiveScale = () => {
+          if (typeof window === "undefined") return 8;
+          const width = window.innerWidth;
+          if (width >= 2560) return 4.5;
+          if (width >= 1920) return 5.5;
+          if (width >= 1600) return 6.5;
+          if (width >= 1440) return 7.5;
+          return 8.5;
+        };
+
+        const responsiveScale = getResponsiveScale();
+
         // Create ScrollTrigger timeline
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -60,7 +73,7 @@ export function HeroVideo() {
 
         // 1. Zoom into the hotel building (targeting the central entrance doors)
         tl.to(hotelImg, {
-          scale: 12.0, // Deep zoom through the gates
+          scale: responsiveScale, // Safe, responsive zoom scale factor
           duration: 3.5,
           ease: "power2.inOut",
         });
@@ -147,8 +160,9 @@ export function HeroVideo() {
             alt="ROYAL STAY Far Palace View"
             fill
             priority
-            className="w-full h-full object-cover scale-[1.02]"
+            className="w-full h-full object-cover object-center scale-[1.02]"
             style={{
+              objectPosition: "center center",
               transformOrigin: "49.5% 53.5%", // Pinpoint camera zoom directly to grand double doors behind fountain
               willChange: "transform",
             }}
@@ -216,47 +230,61 @@ export function HeroVideo() {
             ======================================================== */}
         <div
           ref={uiRef}
-          className="absolute inset-0 z-40 opacity-0 flex flex-col justify-center items-center text-center px-6"
+          className="absolute inset-0 z-40 opacity-0 flex flex-col justify-center items-center text-center px-6 pt-28 pb-16"
         >
-          {/* Stars */}
-          <div className="flex flex-col items-center mb-6 space-y-2">
-            <span className="font-sans text-[9px] tracking-[0.3em] text-primary flex items-center justify-center space-x-1">
-              <Star size={10} fill="#D4AF37" className="text-primary" />
-              <Star size={10} fill="#D4AF37" className="text-primary" />
-              <Star size={10} fill="#D4AF37" className="text-primary" />
-              <Star size={10} fill="#D4AF37" className="text-primary" />
-              <Star size={10} className="text-primary" />
+          <div className="max-w-[1200px] w-full mx-auto my-auto flex flex-col items-center justify-center space-y-6">
+            {/* Stars */}
+            <div className="flex flex-col items-center space-y-2">
+              <span className="font-sans text-[9px] tracking-[0.3em] text-primary flex items-center justify-center space-x-1">
+                <Star size={10} fill="#D4AF37" className="text-primary" />
+                <Star size={10} fill="#D4AF37" className="text-primary" />
+                <Star size={10} fill="#D4AF37" className="text-primary" />
+                <Star size={10} fill="#D4AF37" className="text-primary" />
+                <Star size={10} className="text-primary" />
+              </span>
+            </div>
+
+            <h2 
+              className="font-sans tracking-[0.35em] text-primary uppercase"
+              style={{ fontSize: "clamp(0.6rem, 1.2vw, 0.85rem)" }}
+            >
+              WELCOME TO
+            </h2>
+            <h1 
+              className="font-serif text-white font-light uppercase tracking-wide leading-tight max-w-6xl"
+              style={{ fontSize: "clamp(3rem, 7vw, 8rem)" }}
+            >
+              {"ROYAL STAY"}
+            </h1>
+            <span 
+              className="font-sans text-white/40 uppercase mt-1"
+              style={{ fontSize: "clamp(0.55rem, 1vw, 0.75rem)", letterSpacing: "0.4em" }}
+            >
+              Luxury Hotel & Resort
             </span>
-          </div>
 
-          <h2 className="font-sans text-[10px] tracking-[0.35em] text-primary uppercase mb-2">
-            WELCOME TO
-          </h2>
-          <h1 className="font-serif text-5xl md:text-8xl text-white font-light uppercase tracking-wide leading-tight max-w-6xl">
-            {"ROYAL STAY"}
-          </h1>
-          <span className="font-sans text-[9px] tracking-[0.4em] text-white/40 uppercase mt-1">
-            Luxury Hotel & Resort
-          </span>
-
-          <p className="font-sans text-xs md:text-sm text-white/70 font-light tracking-[0.25em] uppercase max-w-2xl mt-8 leading-relaxed">
-            {"Experience Luxury Beyond Expectations"}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 w-full max-w-sm sm:max-w-none">
-            <button
-              onClick={openBooking}
-              className="w-full sm:w-auto px-10 py-4 bg-primary text-luxury-black text-xs font-sans font-semibold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors duration-300 interactive-hover"
+            <p 
+              className="font-sans text-white/70 font-light tracking-[0.25em] uppercase max-w-2xl mt-4 leading-relaxed"
+              style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
             >
-              Book Now
-            </button>
-            <button
-              onClick={handleScrollDown}
-              className="w-full sm:w-auto px-10 py-4 border border-white/20 text-white hover:border-primary hover:text-primary text-xs font-sans font-semibold uppercase tracking-[0.2em] transition-colors duration-300 interactive-hover"
-            >
-              Explore
-            </button>
+              {"Experience Luxury Beyond Expectations"}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 w-full max-w-sm sm:max-w-none">
+              <button
+                onClick={openBooking}
+                className="w-full sm:w-auto px-10 py-4 bg-primary text-luxury-black text-xs font-sans font-semibold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors duration-300 interactive-hover"
+              >
+                Book Now
+              </button>
+              <button
+                onClick={handleScrollDown}
+                className="w-full sm:w-auto px-10 py-4 border border-white/20 text-white hover:border-primary hover:text-primary text-xs font-sans font-semibold uppercase tracking-[0.2em] transition-colors duration-300 interactive-hover"
+              >
+                Explore
+              </button>
+            </div>
           </div>
 
           {/* Coordinate bars */}
