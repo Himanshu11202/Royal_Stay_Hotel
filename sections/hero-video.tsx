@@ -61,9 +61,9 @@ export function HeroVideo() {
           }
         });
 
-        // Step 1: Camera slowly moves toward the hotel (farShot)
+        // Step 1: Camera slowly moves toward the hotel (using subtle y translation, NO scale/zoom)
         tl.to(farShot, {
-          scale: 1.08,
+          y: -20,
           duration: 2.0,
           ease: "power1.out",
         });
@@ -77,10 +77,10 @@ export function HeroVideo() {
 
         tl.fromTo(midShot, {
           opacity: 0,
-          scale: 1.0,
+          y: 20,
         }, {
           opacity: 1,
-          scale: 1.06,
+          y: 0,
           duration: 2.0,
           ease: "power2.inOut",
         }, "-=1.2");
@@ -94,10 +94,10 @@ export function HeroVideo() {
 
         tl.fromTo(gateShot, {
           opacity: 0,
-          scale: 1.0,
+          y: 20,
         }, {
           opacity: 1,
-          scale: 1.05,
+          y: 0,
           duration: 2.0,
           ease: "power2.inOut",
         }, "-=1.2");
@@ -208,10 +208,11 @@ export function HeroVideo() {
         {/* Center Image Container: max-width: 1500px; width: 82%; height: 58% of viewport height */}
         <div className="relative max-w-[1500px] w-[82vw] h-[58vh] mx-auto bg-[#070707]/80 border border-white/5 shadow-2xl overflow-hidden flex items-center justify-center mt-12 z-10">
           
-          {/* IMAGE 1: hero-far.jpg */}
+          {/* IMAGE 1: hero-far.jpg (Scaled to 0.65 for a 35% visual size reduction) */}
           <div
             ref={farShotRef}
             className="absolute inset-0 w-full h-full z-10 pointer-events-none select-none overflow-hidden flex items-center justify-center"
+            style={{ transform: "scale(0.65)", willChange: "transform" }}
           >
             <LuxuryImage
               ref={hotelImgRef}
@@ -219,10 +220,9 @@ export function HeroVideo() {
               alt="Palace Far View"
               fill
               priority
-              className="w-full h-full object-contain object-center scale-100"
+              className="w-full h-full object-contain object-center"
               style={{
                 objectPosition: "center center",
-                willChange: "transform",
               }}
             />
             {/* Dark luxury overlays */}
@@ -230,19 +230,19 @@ export function HeroVideo() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/85 z-15" />
           </div>
 
-          {/* IMAGE 2: hero-mid.jpg */}
+          {/* IMAGE 2: hero-mid.jpg (Scaled to 0.65 for a 35% visual size reduction) */}
           <div
             ref={midShotRef}
             className="absolute inset-0 w-full h-full z-11 pointer-events-none select-none overflow-hidden flex items-center justify-center opacity-0"
+            style={{ transform: "scale(0.65)", willChange: "transform" }}
           >
             <LuxuryImage
               src="/hero-mid.jpg"
               alt="Palace Mid View"
               fill
-              className="w-full h-full object-contain object-center scale-100"
+              className="w-full h-full object-contain object-center"
               style={{
                 objectPosition: "center center",
-                willChange: "transform",
               }}
             />
             {/* Dark luxury overlays */}
@@ -250,19 +250,19 @@ export function HeroVideo() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/85 z-15" />
           </div>
 
-          {/* IMAGE 3: hero-gate.jpg */}
+          {/* IMAGE 3: hero-gate.jpg (Scaled to 0.65 for a 35% visual size reduction) */}
           <div
             ref={gateShotRef}
             className="absolute inset-0 w-full h-full z-12 pointer-events-none select-none overflow-hidden flex items-center justify-center opacity-0"
+            style={{ transform: "scale(0.65)", willChange: "transform" }}
           >
             <LuxuryImage
               src="/hero-gate.jpg"
               alt="Palace Gate View"
               fill
-              className="w-full h-full object-contain object-center scale-100"
+              className="w-full h-full object-contain object-center"
               style={{
                 objectPosition: "center center",
-                willChange: "transform",
               }}
             />
             {/* Dark luxury overlays */}
@@ -270,10 +270,11 @@ export function HeroVideo() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/85 z-15" />
           </div>
 
-          {/* LAYER 2: PALACE GATES OVERLAY (Splits open during scroll) */}
+          {/* LAYER 2: PALACE GATES OVERLAY (Scaled to 0.65 to match gate location) */}
           <div
             ref={gateContainerRef}
             className="absolute inset-0 z-20 w-full h-full opacity-0 pointer-events-none select-none flex"
+            style={{ transform: "scale(0.65)", willChange: "transform" }}
           >
             {/* Left Gate Panel */}
             <div
@@ -302,17 +303,18 @@ export function HeroVideo() {
             className="absolute inset-0 z-15 bg-gradient-to-r from-transparent via-primary/10 to-transparent mix-blend-color-dodge opacity-0 pointer-events-none"
           />
 
-          {/* LAYER 3: LOBBY INTERIOR PANEL (Chandelier Reception Hall) */}
+          {/* LAYER 3: LOBBY INTERIOR PANEL (Scaled to 0.65 to fit contained layout transition) */}
           <div
             ref={lobbyRef}
-            className="absolute inset-0 w-full h-full z-25 opacity-0 pointer-events-none select-none"
+            className="absolute inset-0 w-full h-full z-25 opacity-0 pointer-events-none select-none flex items-center justify-center"
+            style={{ transform: "scale(0.65)", willChange: "transform" }}
           >
             <div className="absolute inset-0 bg-black/55 z-10" />
             <LuxuryImage
               src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1600"
               alt="Lobby Chandelier Room"
               fill
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
             <div className="absolute top-0 right-1/4 w-[400px] h-full bg-gradient-to-b from-primary/10 via-primary/2 to-transparent -rotate-12 blur-3xl z-15" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/50 z-20" />
